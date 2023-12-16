@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import "./style.scss";
   const Home = () => {
     useEffect(() => {
       if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined)
@@ -22,14 +23,15 @@ import axios from 'axios'
       }
     }
     }, []);
-    const gotogroup = () => {
-      window.location.href="/group";
-    };
     return (
       <>
       <div>
-        <button>Total</button>
-        <button onClick={gotogroup}>Group</button>
+            <div id="mySidenav" class="sidenav">
+                <a href="/calllog" id="Call-Log">Call-Log</a>
+                <a href="#" id="Group-Rank">Group-Rank</a>
+                <a href="#" id="News">News</a>
+                <a href="#" id="Sites">Sites</a>
+            </div>
       </div>
       </>
     );
