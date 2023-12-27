@@ -3,7 +3,10 @@ import "./App.scss";
 import Home from "./pages/Home.jsx"
 import Index from "./auth/index.jsx"
 import Indexgroup from "./pages/group/index.jsx"
-import calllog from "./pages/group/Call-Log.jsx"
+import Calllog from "./pages/group/Call-Log.jsx"
+import Grouprank from "./pages/group/Group-Rank.jsx"
+import News from "./pages/group/News.jsx"
+import Sites from "./pages/group/Sites.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -12,9 +15,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
-        <Route path = "login" element={<Index />} />
-        <Route path = "group" element={<Indexgroup />} >
-          <Route index element={<calllog/>} />
+        <Route path = "/login" element={<Index />} />
+        <Route path = "/group">
+          <Route index element={<Indexgroup/>} />
+          <Route path = "calllog" element={<Calllog/>} />
+          <Route path = "grouprank" element={<Grouprank/>} />
+          <Route path = "news" element={<News/>} />
+          <Route path = "sites" element={<Sites/>} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -23,14 +23,26 @@ import "./style.scss";
       }
     }
     }, []);
+    const onclickcalllog = () => {
+      window.location.href = "/group/calllog";
+    };
+    const onclickgrouprank = () => {
+      window.location.href = "/group/grouprank";
+    };
+    const onclicknews = () => {
+      window.location.href = "/group/news";
+    };
+    const onclicksites = () => {
+      window.location.href = "/group/sites";
+    };
     return (
       <>
       <div>
             <div id="mySidenav" class="sidenav">
-                <a href="/calllog" id="Call-Log">Call-Log</a>
-                <a href="#" id="Group-Rank">Group-Rank</a>
-                <a href="#" id="News">News</a>
-                <a href="#" id="Sites">Sites</a>
+                <a id="Call-Log" onClick={onclickcalllog}>Call-Log</a>
+                <a id="Group-Rank" onClick={onclickgrouprank}>Group-Rank</a>
+                <a id="News" onClick={onclicknews}>News</a>
+                <a id="Sites" onClick={onclicksites}>Sites</a>
             </div>
       </div>
       </>
