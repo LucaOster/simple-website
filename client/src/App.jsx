@@ -15,6 +15,8 @@ import NewsManage from "./pages/group/newsmanage.jsx"
 import Make_Report from "./pages/group/makereport.jsx"
 import BidHelp from "./pages/group/bidhelp.jsx"
 import OutSites from "./pages/group/outsites.jsx"
+import RankView from "./pages/group/rankview.jsx"
+import RankManage from "./pages/group/rankmanage.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -38,7 +40,8 @@ function App() {
           <Route path = "makereport" element={<Make_Report/>}/>
           <Route path = "bidhelps" element={<BidHelp/>}/>
           <Route path = "outsidehomepage" element={<OutSites/>}/>
-
+          <Route path = "rankview" element={<RankView/>}/>
+          <Route path = "rankmanage" element={<RankManage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
