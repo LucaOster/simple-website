@@ -36,16 +36,20 @@ import "./style.scss";
     const onclicksites = () => {
       window.location.href = "/group/sites";
     };
+    const onclickreports = () => {
+      window.location.href = "/group/reports";
+    };
     return (
       <>
-      <div>
+        <div>
             <div id="mySidenav" class="sidenav">
+                <a id="News" onClick={onclicknews}>News</a>
+                <a id="Report" onClick={onclickreports}>Report</a>
                 <a id="Call-Log" onClick={onclickcalllog}>Call-Log</a>
                 <a id="Group-Rank" onClick={onclickgrouprank}>Group-Rank</a>
-                <a id="News" onClick={onclicknews}>News</a>
                 <a id="Sites" onClick={onclicksites}>Sites</a>
             </div>
-      </div>
+         </div>
       </>
     );
   };
