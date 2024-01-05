@@ -14,10 +14,10 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        {/* <Route index element={<Home />} /> */}
+        <Route index element={<Indexgroup/>} />
         <Route path = "/login" element={<Index />} />
         <Route path = "/group">
-          <Route index element={<Indexgroup/>} />
           <Route path = "calllog" element={<Calllog/>} />
           <Route path = "grouprank" element={<Grouprank/>} />
           <Route path = "news" element={<News/>} />

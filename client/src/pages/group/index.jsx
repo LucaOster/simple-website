@@ -5,6 +5,7 @@ import "./style.scss";
     useEffect(() => {
       if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined)
       {
+        alert("localStorage.getItem(token)")
         window.location.href = "/login";
       } else {
       if (localStorage.getItem("token").split(" ")[0] === "Anaconda") {

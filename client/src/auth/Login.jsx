@@ -27,10 +27,10 @@ export default function Login(props) {
   const [password, setPassword] = useState('');
 
   const handleClick = () => {
-  //if(props.mode === 'login') alert('asdf');
-  //else alert('fdsa');
+
     axios.post("http://192.168.81.52:5000/login/", { user: { username: username, password: password} }).then((res) => {
       if (res.data.message === "Login successfully") {
+        
         swal({
           text: res.data.message,
           icon: "success",
@@ -41,6 +41,8 @@ export default function Login(props) {
         localStorage.setItem("token", res.data.token);
       }
       else if (res.data.message === "Email or Password is Wrong!!!") {
+        console.log(res.data);
+  
         swal({
           text: res.data.message,
           icon: "error",
