@@ -23,8 +23,14 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
+const reportsSchema = new mongoose.Schema({
+    name: String,
+    report: String,
+    time: String
+});
 
 const User = new mongoose.model("User", userSchema);
+const Reports = new mongoose.model("Reports", reportsSchema);
 
 //Routes
 app.post("/login", (req, res) => {
@@ -94,7 +100,30 @@ app.post("/auth", (req, res) => {
         }
     });
 });
-
+app.post("/report", (req, res) => {
+     const name = req.body.reports.name;
+     const report = req.body.reports.report;
+     const time = req.body.reports.time;
+    // //check email
+    
+         const reports = new Reports({
+             name,
+             report,
+             time
+         });
+    //     console.log(reports);
+         reports.save((err) => {
+             if (err) {
+                 res.send(err);
+             } else {
+                 res.send({ message: "Your report was submited successfully!" });
+             }
+         });
+    
+    
+    // res.send("register");
+    //   console.log(req.body);
+});
 app.listen(5000, () => {
     console.log("Server starting at 5000");
 });

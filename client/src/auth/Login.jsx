@@ -39,6 +39,7 @@ export default function Login(props) {
           window.location.href="/";
         });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.user.name);
       }
       else if (res.data.message === "Email or Password is Wrong!!!") {
         console.log(res.data);
