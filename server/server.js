@@ -103,7 +103,7 @@ app.post("/auth", (req, res) => {
 app.post("/report", (req, res) => {
      const name = req.body.reports.name;
      const report = req.body.reports.report;
-     const time = req.body.reports.time;
+     const time = new Date();
     // //check email
     
          const reports = new Reports({
