@@ -44,7 +44,6 @@ import "./style.scss";
       <>
         <header>
           <div class="navbar">
-            <img src={avatarsource}></img>
             <div class="dropdown">
                 <button class="dropbtn">Group-Rank 
                   <i class="fa fa-caret-down"></i>
