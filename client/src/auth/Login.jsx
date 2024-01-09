@@ -10,7 +10,7 @@ export default function Login(props) {
     if (localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined)
     {
       if (localStorage.getItem('token').split(" ")[0] === "Anaconda") {
-          axios.post("http://192.168.81.52:5000/auth/", { token: localStorage.getItem("token") })
+          axios.post("http://192.168.81.52:5000/auth/auth", { token: localStorage.getItem("token") })
               .then((res) => {
                   if (res.data.message === "success_auth") {
                       window.location.href = "/";
@@ -28,7 +28,7 @@ export default function Login(props) {
 
   const handleClick = () => {
 
-    axios.post("http://192.168.81.52:5000/login/", { user: { username: username, password: password} }).then((res) => {
+    axios.post("http://192.168.81.52:5000/auth/login/", { user: { username: username, password: password} }).then((res) => {
       if (res.data.message === "Login successfully") {
         
         swal({

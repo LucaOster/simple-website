@@ -1,44 +1,15 @@
 const express = require("express");
+require('dotenv').config()
 const cors = require("cors");
-const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const app = express();
 app.use(express.json());
+var User = require('../models/user.model');
 //app.use(express.urlencoded());
 app.use(cors());
-mongoose.connect(
-    "mongodb://127.0.0.1:27017/sproutDB",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
-    () => {
-        console.log("DB connected");
-    }
-);
-
-require('./routers/index.router')(app);
-
-//const userSchema = new mongoose.Schema({
-//    name: String,
-//    email: String,
-//    password: String
-//});
-
-/*const reportsSchema = new mongoose.Schema({
-    name: String,
-    report: String,
-    time: String
-});
-
-const User = new mongoose.model("User", userSchema);
-const Reports = new mongoose.model("Reports", reportsSchema);*/
-
-//Routes
-/*app.post("/login", (req, res) => {
+async function login(req, res) {
     const email = req.body.user.username;
     const password = req.body.user.password;
-    //check email
     User.findOne({ email: email }, (err, user) => {
         if (user) {
             if (password === user.password) {
@@ -59,9 +30,9 @@ const Reports = new mongoose.model("Reports", reportsSchema);*/
             res.send({ message: "Email or Password is Wrong!!!" });
         }
     });
-});
+  }
 
-app.post("/signup", (req, res) => {
+  async function register(req, res) {
     const name = req.body.user.username;
     const email = req.body.user.email;
     const password = req.body.user.password;
@@ -85,10 +56,8 @@ app.post("/signup", (req, res) => {
             });
         }
     });
-    // res.send("register");
-    //   console.log(req.body);
-});
-app.post("/auth", (req, res) => {
+  }
+async function auth(requ,res) {
     const token = req.body.token;
     const decodedToken = jwt.verify(
         token.split(" ")[1],
@@ -101,31 +70,6 @@ app.post("/auth", (req, res) => {
             res.send({message: "invalid"});
         }
     });
-});
-app.post("/report", (req, res) => {
-     const name = req.body.reports.name;
-     const report = req.body.reports.report;
-     const time = new Date();
-    // //check email
-    
-         const reports = new Reports({
-             name,
-             report,
-             time
-         });
-    //     console.log(reports);
-         reports.save((err) => {
-             if (err) {
-                 res.send(err);
-             } else {
-                 res.send({ message: "Your report was submited successfully!" });
-             }
-         });
-    
-    
-    // res.send("register");
-    //   console.log(req.body);
-});*/
-app.listen(5000, () => {
-    console.log("Server starting at 5000");
-});
+}
+
+module.exports = {auth, register, login}
