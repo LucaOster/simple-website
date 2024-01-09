@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import avatarsource from "../../img/avatar.jpg"
+import backurl from "../../img/back.jpg";
 import axios from 'axios';
 import "./style.scss";
   const Home = () => {
@@ -90,15 +90,9 @@ import "./style.scss";
             
           </div>
         </header>
-        {/*<div>
-            <div id="mySidenav" class="sidenav">
-                <a id="News" onClick={onclicknews}>News</a>
-                <a id="Report" onClick={onclickreports}>Report</a>
-                <a id="Call-Log" onClick={onclickcalllog}>Call-Log</a>
-                <a id="Group-Rank" onClick={onclickgrouprank}>Group-Rank</a>
-                <a id="Sites" onClick={onclicksites}>Sites</a>
-            </div>
-    </div>*/}
+        <body>
+          <img className="backgroundstyle" src={backurl} style={{width:'100%',height:'100%'}}></img>
+        </body>
       </>
     );
   };

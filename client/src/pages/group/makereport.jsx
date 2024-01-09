@@ -25,7 +25,7 @@ export default function MakeReport(props) {
   }
 
   const handleClick = () => {
-      axios.post("http://192.168.81.52:5000/report/", { reports: { name: localStorage.username, report: report, time:Date() } }).then((res) => {
+      axios.post("http://192.168.81.52:5000/report/", { reports: { name: localStorage.username, report: report } }).then((res) => {
         swal({
           text: res.data.message,
           icon: "success",
@@ -44,9 +44,6 @@ export default function MakeReport(props) {
         break;
         case 'report':
           setReport(value);
-        break;
-        case 'time':
-          setTime(value);
         break;
           default:
         break;
