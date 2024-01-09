@@ -7,25 +7,20 @@ import "./style.scss";
 var last_typing = 0;
 export default function MakeReport(props) {
   const [report, setReport] = useState("");
-  const [time, setTime] = useState("");
+  const [opinion, setOpinion] = useState("");
   const [username, setUsername] = useState("");
 
   //function for text input value change
-  const handleChange = e => {
+  const handleReportChange = e => {
     setReport(e.target.value)
-  //   if (props.onTyping) {
-  //     let time_now = Date.now();
-  //     if (time_now >= last_typing + config.TYPING_UPDATE_INTERVAL) {
-  //       last_typing = time_now;
-  //       props.onTyping();
-  //     }
-  //   }
-    // alert(Date());
-  //   e.target.value = null;
+  }
+
+  const handleOpinionChange = e => {
+    setOpinion(e.target.value)
   }
 
   const handleClick = () => {
-      axios.post("http://192.168.81.52:5000/report/", { reports: { name: localStorage.username, report: report } }).then((res) => {
+      axios.post("http://192.168.81.52:5000/api/report/", { reports: { name: localStorage.username, report: report,opinion: opinion } }).then((res) => {
         swal({
           text: res.data.message,
           icon: "success",
@@ -36,19 +31,22 @@ export default function MakeReport(props) {
   }
 
   const onChange = (e) => {
-      const name = e.target.name;
-      const value = e.target.value;
-      switch (name) {
-        case 'name':
-          setUsername(value);
-        break;
-        case 'report':
-          setReport(value);
-        break;
-          default:
-        break;
-      }
-  }
+    const name = e.target.name;
+    const value = e.target.value;
+    switch (name) {
+      case 'name':
+        setUsername(value);
+      break;
+      case 'report':
+        setReport(value);
+      break;
+      case 'opinion':
+        setOpinion(value);
+      break;
+        default:
+      break;
+    }
+}
    
     return (
         <>
@@ -102,19 +100,22 @@ export default function MakeReport(props) {
           </div>
         </header>
         <body>
-        <div>
             <div>
-                Hi, {localStorage.username}!
+                <div>
+                    <h1>Hi, {localStorage.username}!</h1>
+                </div>
+                <div>
+                    <Input type="text" value={report} onChange={handleReportChange} placeholder="Enter Report..." />
+                </div>
+                <div>
+                    <Input type="text" value={opinion} onChange={handleOpinionChange} placeholder="Enter Opinion..." />
+                </div>
+                <div>
+                    <Button type="submit" color="primary" onClick={handleClick}>
+                        Submit
+                    </Button>
+                </div>
             </div>
-            <div>
-                <Input type="text" value={report} onChange={handleChange} placeholder="Enter Report..." />
-            </div>
-            <div>
-                <Button type="submit" color="primary" onClick={handleClick}>
-                    Submit
-                </Button>
-            </div>
-        </div>
         </body>
     </React.Fragment>
       </>

@@ -57,7 +57,7 @@ async function login(req, res) {
         }
     });
   }
-async function auth(requ,res) {
+async function auth(req,res) {
     const token = req.body.token;
     const decodedToken = jwt.verify(
         token.split(" ")[1],
