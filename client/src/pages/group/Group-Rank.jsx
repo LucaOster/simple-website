@@ -2,29 +2,6 @@ import "./style.scss";
 
 export default function GroupRank() {
 
-<<<<<<< HEAD
-    const onclickrankmanage = () => {
-=======
-  /*  const onclickrankmanage = () => {
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
-        window.location.href = "/group/rankmanage";
-      };
-      const onclickrankview = () => {
-        window.location.href = "/group/rankview";
-<<<<<<< HEAD
-      };
-
-    return (
-        <>
-            <div>
-                <div id="mySidenav" class="sidenav">
-                    <a id="News" onClick={onclickrankview}>RankView</a>
-                    <a id="Report" onClick={onclickrankmanage}>RankManage</a>
-                </div>
-            </div>
-        </>
-=======
-      };*/
 
     return (
       <>
