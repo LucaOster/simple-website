@@ -2,12 +2,6 @@
 export default function BidHelp() {
     return (
         <>
-<<<<<<< HEAD
-            <div>
-                this is Bid help Page!!!
-            </div>
-        </>
-=======
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -66,7 +60,6 @@ export default function BidHelp() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
