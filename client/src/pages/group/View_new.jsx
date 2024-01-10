@@ -5,12 +5,7 @@ export default function News() {
 
     return (
         <>
-<<<<<<< HEAD
-            <div>
-               This is the Veiw_New Alarm page!!!!
-            </div>
-        </>
-=======
+
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -69,6 +64,5 @@ export default function News() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
