@@ -2,12 +2,6 @@ export default function RankView() {
 
     return (
         <>
-<<<<<<< HEAD
-            <div>
-                this is the Ranking View Page!!!
-            </div>
-        </>
-=======
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -66,7 +60,6 @@ export default function RankView() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
