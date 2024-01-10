@@ -10,11 +10,7 @@ import "./style.scss";
         window.location.href = "/login";
       } else {
       if (localStorage.getItem("token").split(" ")[0] === "Anaconda") {
-<<<<<<< HEAD
-          axios.post("http://localhost:5000/auth/", { token: localStorage.getItem("token") })
-=======
           axios.post("http://192.168.81.52:5000/auth/auth/", { token: localStorage.getItem("token") })
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
               .then((res) => {
                   if (res.data.message === "success_auth") {
                       console.log('success_auth');
@@ -43,20 +39,6 @@ import "./style.scss";
     };
     const onclickreports = () => {
       window.location.href = "/group/reports";
-<<<<<<< HEAD
-    };
-    return (
-      <>
-        <div>
-            <div id="mySidenav" class="sidenav">
-                <a id="News" onClick={onclicknews}>News</a>
-                <a id="Report" onClick={onclickreports}>Report</a>
-                <a id="Call-Log" onClick={onclickcalllog}>Call-Log</a>
-                <a id="Group-Rank" onClick={onclickgrouprank}>Group-Rank</a>
-                <a id="Sites" onClick={onclicksites}>Sites</a>
-            </div>
-         </div>
-=======
     };*/
     return (
       <>
@@ -111,7 +93,6 @@ import "./style.scss";
         <body>
           <img className="backgroundstyle" src={backurl} style={{width:'100%',height:'100%'}}></img>
         </body>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       </>
     );
   };
