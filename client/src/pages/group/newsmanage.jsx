@@ -66,7 +66,6 @@ export default function NewsManage() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
