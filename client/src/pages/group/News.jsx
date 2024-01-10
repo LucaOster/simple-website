@@ -2,29 +2,6 @@ import "./style.scss";
 
 export default function News() {
 
-<<<<<<< HEAD
-    const onclickblog = () => {
-=======
-    /*const onclickblog = () => {
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
-        window.location.href = "/group/blog";
-      };
-      const onclickview_new = () => {
-        window.location.href = "/group/view_new";
-<<<<<<< HEAD
-      };
-
-    return (
-        <>
-            <div>
-                <div id="mySidenav" class="sidenav">
-                    <a id="News" onClick={onclickview_new}>New_Alarm</a>
-                    <a id="Report" onClick={onclickblog}>Blog</a>
-                </div>
-            </div>
-        </>
-=======
-      };*/
 
     return (
       <>
