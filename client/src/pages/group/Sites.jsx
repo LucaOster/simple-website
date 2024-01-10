@@ -2,29 +2,6 @@ import "./style.scss";
 
 export default function Sites() {
 
-<<<<<<< HEAD
-    const onclickoutsite = () => {
-=======
-   /* const onclickoutsite = () => {
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
-        window.location.href = "/group/outsidehomepage";
-      };
-      const onclickbid = () => {
-        window.location.href = "/group/bidhelps";
-      };
-<<<<<<< HEAD
-
-    return (
-        <>
-            <div>
-                <div id="mySidenav" class="sidenav">
-                    <a id="News" onClick={onclickoutsite}>OutSites</a>
-                    <a id="Report" onClick={onclickbid}>Bids Helps</a>
-                </div>
-            </div>
-        </>
-=======
-*/
     return (
         <>
         <header>
@@ -85,7 +62,6 @@ export default function Sites() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
