@@ -20,12 +20,7 @@ export default function MakeReport(props) {
   }
 
   const handleClick = () => {
-<<<<<<< HEAD
-      axios.post("http://localhost:5000/api/report/", { reports: { name: localStorage.username, report: report, opinion: opinion } }).then((res) => {
-        console.log(report);
-=======
       axios.post("http://192.168.81.52:5000/api/report/", { reports: { name: localStorage.username, report: report,opinion: opinion } }).then((res) => {
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
         swal({
           text: res.data.message,
           icon: "success",
@@ -36,24 +31,6 @@ export default function MakeReport(props) {
   }
 
   const onChange = (e) => {
-<<<<<<< HEAD
-      const name = e.target.name;
-      const value = e.target.value;
-      switch (name) {
-        case 'name':
-          setUsername(value);
-        break;
-        case 'report':
-          setReport(value);
-        break;
-        case 'opinion':
-          setOpinion(value);
-        break;
-          default:
-        break;
-      }
-  }
-=======
     const name = e.target.name;
     const value = e.target.value;
     switch (name) {
@@ -70,14 +47,10 @@ export default function MakeReport(props) {
       break;
     }
 }
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
    
     return (
         <>
         <React.Fragment>
-<<<<<<< HEAD
-          <body>
-=======
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -127,7 +100,6 @@ export default function MakeReport(props) {
           </div>
         </header>
         <body>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
             <div>
                 <div>
                     <h1>Hi, {localStorage.username}!</h1>
