@@ -1,14 +1,6 @@
 export default function CallLog() {
     return (
         <>
-<<<<<<< HEAD
-            <div>Hello Calllog!!!
-                <a href="https://docs.google.com/spreadsheets/d/1bn9mqm6gNpGgLpZ4iACk6i-IiivY4Z0wvZ-zXOIJrPs/edit?usp=sharing" target="_blank">
-                    <button>Call-Log</button>
-                </a>
-            </div>
-        </>
-=======
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -67,7 +59,6 @@ export default function CallLog() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
