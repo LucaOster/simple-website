@@ -2,12 +2,6 @@ import "./style.scss";
 
 export default function News() {
 
-    /*const onclickblog = () => {
-        window.location.href = "/group/blog";
-      };
-      const onclickview_new = () => {
-        window.location.href = "/group/view_new";
-      };*/
 
     return (
       <>

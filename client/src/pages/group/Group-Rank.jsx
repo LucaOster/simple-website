@@ -2,12 +2,6 @@ import "./style.scss";
 
 export default function GroupRank() {
 
-  /*  const onclickrankmanage = () => {
-        window.location.href = "/group/rankmanage";
-      };
-      const onclickrankview = () => {
-        window.location.href = "/group/rankview";
-      };*/
 
     return (
       <>
@@ -64,6 +58,7 @@ export default function GroupRank() {
           </div>
   </div>*/}
     </>
+>>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   

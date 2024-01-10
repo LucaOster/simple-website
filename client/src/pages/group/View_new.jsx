@@ -5,6 +5,7 @@ export default function News() {
 
     return (
         <>
+
         <header>
           <div class="navbar">
             <div class="dropdown">

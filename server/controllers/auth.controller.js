@@ -1,27 +1,5 @@
-const express = require("express");
-require('dotenv').config()
-const cors = require("cors");
-const jwt = require("jsonwebtoken");
-const app = express();
-app.use(express.json());
-var User = require('../models/user.model');
-//app.use(express.urlencoded());
-app.use(cors());
-async function login(req, res) {
-    const email = req.body.user.username;
-    const password = req.body.user.password;
-    User.findOne({ email: email }, (err, user) => {
-        if (user) {
-            if (password === user.password) {
-                const token = jwt.sign(
-                    {
-                        userEmail: user.email,
-                    },
-                    "KSR",
-                    { expiresIn: "12h" }
-                );
-                res.send({ message: "Login successfully", user: user, token: "Anaconda " + token});
 
+<<<<<<< HEAD
             }
             else {
                 res.send({ message: "Email or Password is Wrong!!!" });
@@ -73,3 +51,5 @@ async function auth(req,res) {
 }
 
 module.exports = {auth, register, login}
+=======
+>>>>>>> 9fcbc2085a5abde41d6767a8c57acbc9b1054b43

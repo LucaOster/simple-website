@@ -2,16 +2,6 @@ import "./style.scss";
 
 export default function Reports() {
 
-   /* const onclicknewManage = () => {
-        window.location.href = "/group/newsmanage";
-      };
-      const onclickreportview = () => {
-        window.location.href = "/group/reportview";
-      };
-      const onclickreportwork = () => {
-        window.location.href = "/group/makereport";
-      };*/
-
     return (
       <>
       <header>

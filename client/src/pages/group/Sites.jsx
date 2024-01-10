@@ -2,13 +2,6 @@ import "./style.scss";
 
 export default function Sites() {
 
-   /* const onclickoutsite = () => {
-        window.location.href = "/group/outsidehomepage";
-      };
-      const onclickbid = () => {
-        window.location.href = "/group/bidhelps";
-      };
-*/
     return (
         <>
         <header>
