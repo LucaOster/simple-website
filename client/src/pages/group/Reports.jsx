@@ -2,34 +2,6 @@ import "./style.scss";
 
 export default function Reports() {
 
-<<<<<<< HEAD
-    const onclicknewManage = () => {
-=======
-   /* const onclicknewManage = () => {
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
-        window.location.href = "/group/newsmanage";
-      };
-      const onclickreportview = () => {
-        window.location.href = "/group/reportview";
-      };
-      const onclickreportwork = () => {
-        window.location.href = "/group/makereport";
-<<<<<<< HEAD
-      };
-
-    return (
-        <>
-            <div>
-                <div id="mySidenav" class="sidenav">
-                    <a id="News" onClick={onclicknewManage}>News Manage</a>
-                    <a id="Report" onClick={onclickreportview}>View All Reporst</a>
-                    <a id="Group-Rank" onClick={onclickreportwork}>Make Report</a>
-                </div>
-            </div>
-        </>
-=======
-      };*/
-
     return (
       <>
       <header>
@@ -85,7 +57,6 @@ export default function Reports() {
           </div>
   </div>*/}
     </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
