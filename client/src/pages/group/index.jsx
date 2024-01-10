@@ -5,10 +5,11 @@ import "./style.scss";
     useEffect(() => {
       if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined)
       {
+        alert("localStorage.getItem(token)")
         window.location.href = "/login";
       } else {
       if (localStorage.getItem("token").split(" ")[0] === "Anaconda") {
-          axios.post("http://192.168.81.52:5000/auth/", { token: localStorage.getItem("token") })
+          axios.post("http://localhost:5000/auth/", { token: localStorage.getItem("token") })
               .then((res) => {
                   if (res.data.message === "success_auth") {
                       console.log('success_auth');
@@ -35,16 +36,20 @@ import "./style.scss";
     const onclicksites = () => {
       window.location.href = "/group/sites";
     };
+    const onclickreports = () => {
+      window.location.href = "/group/reports";
+    };
     return (
       <>
-      <div>
+        <div>
             <div id="mySidenav" class="sidenav">
+                <a id="News" onClick={onclicknews}>News</a>
+                <a id="Report" onClick={onclickreports}>Report</a>
                 <a id="Call-Log" onClick={onclickcalllog}>Call-Log</a>
                 <a id="Group-Rank" onClick={onclickgrouprank}>Group-Rank</a>
-                <a id="News" onClick={onclicknews}>News</a>
                 <a id="Sites" onClick={onclicksites}>Sites</a>
             </div>
-      </div>
+         </div>
       </>
     );
   };

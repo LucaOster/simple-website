@@ -10,7 +10,7 @@ export default function Register(props) {
   const [password, setPassword] = useState('');
 
   const handleClick = () => {
-    axios.post("http://192.168.81.52:5000/signup/", { user: { username: username, email: email, password: password} }).then((res) => {
+    axios.post("http://localhost:5000/signup/", { user: { username: username, email: email, password: password} }).then((res) => {
       swal({
         text: res.data.message,
         icon: "success",

@@ -7,7 +7,7 @@ import axios from 'axios'
         window.location.href = "/login";
       } else {
       if (localStorage.getItem("token").split(" ")[0] === "Anaconda") {
-          axios.post("http://192.168.81.52:5000/auth/", { token: localStorage.getItem("token") })
+          axios.post("http://localhost:5000/auth/", { token: localStorage.getItem("token") })
               .then((res) => {
                   if (res.data.message === "success_auth") {
                       console.log('success_auth');
