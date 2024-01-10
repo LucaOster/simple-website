@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import Home from "./pages/Home.jsx"
+// import Home from "./pages/Home.jsx"
 import Index from "./auth/index.jsx"
 import Indexgroup from "./pages/group/index.jsx"
 import Calllog from "./pages/group/Call-Log.jsx"

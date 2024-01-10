@@ -1,4 +1,5 @@
 require('dotenv').config()
+<<<<<<< HEAD
 // var express = require('express');
 // var jwt = require('express-jwt');
 // var path = require('path');
@@ -31,3 +32,17 @@ const route = (app) => {
 } 
 
 module.exports = route;
+=======
+var express = require('express');
+var jwt = require('express-jwt');
+var path = require('path');
+var authRouter = require('./auth.router');
+var apiRouter = require('./api.router');
+
+const route = (app) => {
+    app.use('/auth', authRouter);
+    app.use('/api', apiRouter); // here error place
+  }
+  
+  module.exports = route;
+>>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11

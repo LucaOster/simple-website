@@ -10,7 +10,11 @@ export default function Login(props) {
     if (localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined)
     {
       if (localStorage.getItem('token').split(" ")[0] === "Anaconda") {
+<<<<<<< HEAD
           axios.post("http://localhost:5000/auth/", { token: localStorage.getItem("token") })
+=======
+          axios.post("http://192.168.81.52:5000/auth/auth", { token: localStorage.getItem("token") })
+>>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
               .then((res) => {
                   if (res.data.message === "success_auth") {
                       window.location.href = "/";
@@ -28,7 +32,11 @@ export default function Login(props) {
 
   const handleClick = () => {
 
+<<<<<<< HEAD
     axios.post("http://localhost:5000/login/", { user: { username: username, password: password} }).then((res) => {
+=======
+    axios.post("http://192.168.81.52:5000/auth/login/", { user: { username: username, password: password} }).then((res) => {
+>>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       if (res.data.message === "Login successfully") {
         
         swal({
@@ -39,6 +47,7 @@ export default function Login(props) {
           window.location.href="/";
         });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.user.name);
       }
       else if (res.data.message === "Email or Password is Wrong!!!") {
         console.log(res.data);

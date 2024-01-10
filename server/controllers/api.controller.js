@@ -1,7 +1,10 @@
 require('dotenv').config()
 var User = require('../models/user.model');
+<<<<<<< HEAD
 var Room = require('../models/room.model');
 var userinfo = require('../utils/userinfo');
+=======
+>>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
 
 
 async function getAll(req, res) {
