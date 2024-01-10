@@ -1,12 +1,5 @@
 export default function RankManage() {
     return (
-<<<<<<< HEAD
-        <>
-            <div>
-              this is the Rank Manage Page!!!!
-            </div>
-        </>
-=======
       <>
       <header>
         <div class="navbar">
@@ -61,7 +54,6 @@ export default function RankManage() {
           </div>
   </div>*/}
     </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
   
