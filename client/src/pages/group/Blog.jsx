@@ -2,14 +2,6 @@
 export default function Blog() {
     return (
         <>
-<<<<<<< HEAD
-            <div>
-                <div>
-                    This is the Bolg page!!!
-                </div>
-            </div>
-        </>
-=======
         <header>
           <div class="navbar">
             <div class="dropdown">
@@ -68,6 +60,5 @@ export default function Blog() {
             </div>
     </div>*/}
       </>
->>>>>>> b36ccb55e92c37a43767a948f38a6e3732ad4c11
       )
 }
