@@ -6,8 +6,8 @@ var authRouter = require('./auth.router');
 var apiRouter = require('./api.router');
 
 const route = (app) => {
-    app.use('/auth', authRouter);
-    app.use('/api', apiRouter); // here error place
-  }
+  app.use('/auth', authRouter);
+  app.use('/api', apiRouter); // here error place
+}
   
-  module.exports = route;
+module.exports = route;

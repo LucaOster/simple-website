@@ -47,7 +47,6 @@
 }
 
 .navbar a {
-  
   float: right;
   font-size: 16px;
   color: white;
@@ -55,6 +54,7 @@
   padding: 14px 16px;
   text-decoration: none;
 }
+
 .navbar img {
   float: left;
   font-size: 16px;
@@ -83,7 +83,6 @@
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  
   background-color: red;
 }
 

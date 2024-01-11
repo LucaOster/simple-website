@@ -1,22 +1,107 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 import loginImg from "../login.svg";
 import axios from 'axios';
 import swal from 'sweetalert';
 import "./style.scss";
+import {useEffect } from "react";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import InputLabel from '@mui/material/InputLabel';
+import Input from '@mui/material/Input';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function Register(props) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [password1, setPassword1] = useState('');
+  const [myValue, setValue] = useState('');
+  const [userType, setUserType] = useState('');
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('member');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickOpen = (e) => {
+    const value = e.target.value;
+    setSelectedValue(value);
+    setUserType(value)
+    if(value !== "Member") {
+      setOpen(true);
+    }
+  }
+  useEffect(() => {
+    setSelectedValue("Member");
+  }, []);
+
+  const handleClose = () => {
+    setSelectedValue("Member");
+    setOpen(false);        
+  };
+
+  const handleRole = () => {
+    axios.post('http://192.168.81.52:5000/auth/role/', { user:{type:userType, password:myValue}}).then((res) => {
+      if(res.data.success === "true") {
+        swal({
+          text: res.data.message,
+          icon: "success",
+          type: "success"
+        }).then(() => {
+          setSelectedValue(userType);
+          localStorage.setItem("userType", userType);
+          setValue("");
+        });
+      }
+      else {
+        swal({
+          text: res.data.message,
+          icon: "error",
+          type: "error"
+        }).then(() => {
+          setSelectedValue("Member");
+          setValue("");
+        });
+      }
+    })
+    setOpen(false);
+  }
 
   const handleClick = () => {
-    axios.post("http://192.168.81.52:5000/auth/signup/", { user: { username: username, email: email, password: password} }).then((res) => {
+    if(email && username && password && password1) {
+      if(password !== password1) {
+        swal({
+          text: "Your password is not match",
+          icon: "error",
+          type: "error"
+        })
+      }
+      else {
+        axios.post("http://192.168.81.52:5000/auth/signup/", { user: { username: username, email: email, password: password} }).then((res) => {
+          swal({
+            text: res.data.message,
+            icon: "success",
+            type: "success"
+          })
+        });
+      }
+    }
+    else {
       swal({
-        text: res.data.message,
-        icon: "success",
-        type: "success"
+        text: "Please Fill all field",
+        icon: "error",
+        type: "error"
       })
-    })
+    }
   }
 
   const onChange = (e) => {
@@ -36,7 +121,9 @@ export default function Register(props) {
       break;
     }
   }
-
+  
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  
   return (
     <div className="base-container" ref={props.containerRef}>
       <div className="header">Register</div>
@@ -44,18 +131,65 @@ export default function Register(props) {
         <div className="image">
           <img src={loginImg} />
         </div>
+        <FormControl>
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+          >
+            <FormControlLabel value="Leader" control={<Radio />} label="Leader" onChange={handleClickOpen} checked={selectedValue === "Leader"}/>
+            <FormControlLabel value="Viceleader" control={<Radio />} label="Vice-leader" onChange={handleClickOpen} checked={selectedValue === "Viceleader"}/>
+            <FormControlLabel value="Member" control={<Radio />} label="Member" onChange={handleClickOpen} checked={selectedValue === "Member"}/>
+          </RadioGroup>
+        </FormControl>
         <div className="form">
+          <Dialog
+            open={open}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle>{"Input password for role!"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
+              <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
+                <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+                <Input
+                  id="standard-adornment-password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={myValue}
+                  onChange={(e)=>setValue(e.target.value)}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleRole}>OK</Button>
+            </DialogActions>
+          </Dialog>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input type="text" onChange={onChange} value={username} name="username" placeholder="username" />
+            <input type="text" onChange={onChange} value={username} name="username" placeholder="username" required/>
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="text" onChange={onChange} value={email} name="email" placeholder="email" />
+            <input type="text" onChange={onChange} value={email} name="email" placeholder="email" required/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" onChange={onChange} value={password} name="password" placeholder="password" />
+            <input type="password" onChange={onChange} value={password} name="password" placeholder="password" required/>
+            <label htmlFor="password">Confirm the Password</label>
+            <input type="password" onChange={onChange} value={password1} name="password1" placeholder="password" required/>
           </div>
         </div>
       </div>

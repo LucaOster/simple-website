@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.scss";
-// import Home from "./pages/Home.jsx"
 import Index from "./auth/index.jsx"
 import Indexgroup from "./pages/group/index.jsx"
 import Calllog from "./pages/group/Call-Log.jsx"
@@ -24,7 +23,6 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        {/* <Route index element={<Home />} /> */}
         <Route index element={<Indexgroup/>} />
         <Route path = "/login" element={<Index />} /> 
         <Route path = "/group">
@@ -47,5 +45,4 @@ function App() {
     </BrowserRouter>
     );
 }
-
 export default App;
