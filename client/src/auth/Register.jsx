@@ -23,11 +23,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 export default function Register(props) {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password1, setPassword1] = useState('');
   const [myValue, setValue] = useState('');
-  const [userType, setUserType] = useState('');
+  const [userType, setUserType] = useState('member');
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('member');
   const [showPassword, setShowPassword] = useState(false);
@@ -77,7 +76,7 @@ export default function Register(props) {
   }
 
   const handleClick = () => {
-    if(email && username && password && password1) {
+    if(username && password && password1) {
       if(password !== password1) {
         swal({
           text: "Your password is not match",
@@ -86,7 +85,7 @@ export default function Register(props) {
         })
       }
       else {
-        axios.post("http://192.168.81.52:5000/auth/signup/", { user: { username: username, email: email, password: password} }).then((res) => {
+        axios.post("http://192.168.81.52:5000/auth/signup/", { user: { username: username, password: password ,type: userType} }).then((res) => {
           swal({
             text: res.data.message,
             icon: "success",
@@ -111,12 +110,11 @@ export default function Register(props) {
       case 'username':
         setUsername(value);
       break;
-      case 'email':
-        setEmail(value);
-      break;
       case 'password':
         setPassword(value);
       break;
+      case 'password1':
+        setPassword1(value);
         default:
       break;
     }
@@ -180,10 +178,6 @@ export default function Register(props) {
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input type="text" onChange={onChange} value={username} name="username" placeholder="username" required/>
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="text" onChange={onChange} value={email} name="email" placeholder="email" required/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>

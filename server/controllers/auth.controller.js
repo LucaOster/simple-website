@@ -1,19 +1,18 @@
 const express = require("express");
 require('dotenv').config()
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
 const app = express();
 app.use(express.json());
 var User = require('../models/user.model');
 app.use(cors());
 
 async function login(req, res) {
-  const email = req.body.user.username;
+  const username = req.body.user.username;
   const password = req.body.user.password;
-  User.findOne({ email: email }, (err, user) => {
+  User.findOne({ username: username }, (err, user) => {
       if (user) {
           if (password === user.password) {
-              res.send({ message: "Login successfully", user: user, token: "Anaconda " + token});
+              res.send({ message: "Login successfully", user: user});
           }
           else {
               res.send({ message: "Email or Password is Wrong!!!" });
@@ -27,19 +26,18 @@ async function login(req, res) {
 
 async function register(req, res) {
   const name = req.body.user.username;
-  const email = req.body.user.email;
   const password = req.body.user.password;
-  User.findOne({ email: email }, (err, user) => {
+  const type = req.body.user.type;
+  User.findOne({ name: name }, (err, user) => {
       if (user) {
           res.send({ message: "User is already registerd" });
       }
       else {
           const user = new User({
               name,
-              email,
-              password
+              password,
+              type
           });
-          console.log(user);
           user.save((err) => {
               if (err) {
                   res.send(err);

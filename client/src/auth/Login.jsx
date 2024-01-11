@@ -49,7 +49,7 @@ export default function Login(props) {
         </div>
         <div className="form">
           <div className="form-group">
-            <label htmlFor="username">Email Address</label>
+            <label htmlFor="username">User Name</label>
             <input type="text" name="username" placeholder="username"  onChange={onChange} required/>
           </div>
           <div className="form-group">
