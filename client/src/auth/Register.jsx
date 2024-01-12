@@ -123,10 +123,10 @@ export default function Register(props) {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   
   return (
-    <div className="base-container" ref={props.containerRef}>
-      <div className="header">Register</div>
-      <div className="content">
-        <div className="image">
+    <div classNameName="base-container" ref={props.containerRef}>
+      <div classNameName="header">Register</div>
+      <div classNameName="content">
+        <div classNameName="image">
           <img src={loginImg} />
         </div>
         <FormControl>
@@ -140,7 +140,7 @@ export default function Register(props) {
             <FormControlLabel value="Member" control={<Radio />} label="Member" onChange={handleClickOpen} checked={selectedValue === "Member"}/>
           </RadioGroup>
         </FormControl>
-        <div className="form">
+        <div classNameName="form">
           <Dialog
             open={open}
             keepMounted
@@ -175,11 +175,11 @@ export default function Register(props) {
               <Button onClick={handleRole}>OK</Button>
             </DialogActions>
           </Dialog>
-          <div className="form-group">
+          <div classNameName="form-group">
             <label htmlFor="username">Username</label>
             <input type="text" onChange={onChange} value={username} name="username" placeholder="username" required/>
           </div>
-          <div className="form-group">
+          <div classNameName="form-group">
             <label htmlFor="password">Password</label>
             <input type="password" onChange={onChange} value={password} name="password" placeholder="password" required/>
             <label htmlFor="password">Confirm the Password</label>
@@ -187,8 +187,8 @@ export default function Register(props) {
           </div>
         </div>
       </div>
-      <div className="footer">
-        <button type="button" className="btn" onClick={handleClick}>
+      <div classNameName="footer">
+        <button type="button" classNameName="btn" onClick={handleClick}>
           Register
         </button>
       </div>
