@@ -113,3 +113,134 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+:root {
+  --primary: #0E2431;
+  --secondary: #4070F4;
+  --secondary-dark: #3665EB;
+  --gray: #666;
+  --body-font: 'Nunito', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font) !important;
+}
+
+button {
+  border: 0;
+  outline: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+}
+
+.confirm {
+  width: 360px;
+  height: 280px;
+  background: #fff;
+  transition: .6s;
+  z-index: 100;
+  position: absolute;
+  top: -280px;
+  left: calc(50% - 180px);
+}
+
+.confirm.show {
+  top: calc(50% - 140px);
+}
+
+.confirm-content {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary);
+  padding: 1.5rem;
+}
+
+.confirm-content h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.confirm-content h4::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--secondary);
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+}
+
+.confirm-content h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-top: 3rem;
+}
+
+.confirm-content p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.confirm-btns {
+  height: 30%;
+}
+
+.confirm-btns button {
+  width: 50%;
+  height: 100%;
+  background: var(--secondary);
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+.confirm-btns button:hover {
+  background: var(--secondary-dark);
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.confirm.show + .overlay {
+  display: block;
+}
+
+.button {
+  background: var(--secondary);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 1rem 4rem;
+}
+
+@media screen and (max-width: 450px) {
+  .confirm {
+    width: 300px;
+    left: calc(50% - 150px);
+  }
+}

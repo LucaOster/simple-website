@@ -19,7 +19,7 @@ export default function Login(props) {
         }).then(() => {
           window.location.href="/";
         });
-        localStorage.setItem("username", res.data.user.name);
+        localStorage.setItem("username", res.data.user.name); 
       }
       else {
         swal({

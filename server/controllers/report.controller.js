@@ -1,5 +1,4 @@
 require('dotenv').config()
-const { now } = require('mongoose');
 const Reports = require('../models/report.model.js');
 
 async function getAll(req, res) {
